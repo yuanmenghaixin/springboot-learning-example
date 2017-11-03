@@ -1,6 +1,7 @@
 package org.spring.springboot.web;
 
 import org.junit.Test;
+import org.spring.springboot.web.controller.HelloWorldController;
 
 import static org.junit.Assert.assertEquals;
 

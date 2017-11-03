@@ -1,4 +1,4 @@
-package org.spring.springboot.web;
+package org.spring.springboot.web.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HelloWorldController {
-
+//访问地址http://localhost:8080/
     @RequestMapping("/")
     public String sayHello() {
         return "Hello,World!";
