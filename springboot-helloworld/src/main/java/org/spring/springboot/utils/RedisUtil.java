@@ -178,8 +178,8 @@ public class RedisUtil {
      * @param l1
      * @return
      */
-    public List<Object> lRange(String k, long l, long l1, ListOperations<String, Object> list){
-        list = redisTemplate.opsForList();
+    public List<Object> lRange(String k, long l, long l1){
+        ListOperations<String, Object>  list = redisTemplate.opsForList();
         return list.range(k,l,l1);
     }
 
