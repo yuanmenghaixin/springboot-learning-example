@@ -23,8 +23,7 @@ import java.lang.reflect.Method;
 
 @Configuration
 @EnableCaching
-public class RedisConfig extends CachingConfigurerSupport{
-
+public class RedisCacheConfig extends CachingConfigurerSupport{
     @Bean
     public KeyGenerator wiselyKeyGenerator(){
         return new KeyGenerator() {
