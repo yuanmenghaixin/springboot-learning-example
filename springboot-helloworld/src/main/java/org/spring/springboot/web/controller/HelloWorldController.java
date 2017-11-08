@@ -17,11 +17,10 @@ public class HelloWorldController {
 //访问地址http://localhost:8080/
     @RequestMapping("/")
     public String sayHello() {
-        Config config=new Config();
-        config.useSingleServer().setAddress("10.200.145.152"+":"+"6379");
-        config.useSingleServer().setPassword("redismoyo");
-        RedissonClient redisson=Redisson.create(config);
-        System.out.print("成功连接Redis Server"+"\t"+"连接"+"10.200.145.152"+":"+"6379"+"服务器");
+        Config config = new Config();
+        config.useSingleServer().setAddress("redis://192.168.242.128:6379");
+        RedissonClient redisson = Redisson.create(config);
+        System.out.print("成功连接Redis Server"+"\t"+"连接"+"192.168.242.128"+":"+"6379"+"服务器");
         return "Hello,World!";
     }
 }
