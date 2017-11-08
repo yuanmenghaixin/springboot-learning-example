@@ -1,6 +1,7 @@
 package org.spring.springboot;
 
 import org.spring.springboot.dubbo.CityDubboConsumerService;
+import org.spring.springboot.dubbo.CountryDubboConsumerService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -20,5 +21,7 @@ public class ClientApplication {
         ConfigurableApplicationContext run = SpringApplication.run(ClientApplication.class, args);
         CityDubboConsumerService cityService = run.getBean(CityDubboConsumerService.class);
         cityService.printCity();
+        CountryDubboConsumerService countryService = run.getBean(CountryDubboConsumerService.class);
+        countryService.printCountry();
     }
 }
