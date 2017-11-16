@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloWorldController {
 
-//访问地址http://localhost:8080/
+    //访问地址http://localhost:8080/
     @RequestMapping("/")
     public String sayHello() {
         Config config = new Config();
