@@ -6,7 +6,7 @@
     <groupId>springboot</groupId>
     <artifactId>springboot-restful</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-restful :: Spsringboot 实现 Restful 服务，基于 HTTP / JSON 传输 Demo</name>
+    <name>springboot-restful :: Spsringboot 实现 Restful 服务，基于 HTTP / JSON 传输 Demo,实现了cxf webservice,job并发处理</name>
 
     <!-- Spring Boot 启动父依赖 -->
     <parent>
@@ -27,6 +27,19 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-spring-boot-starter-jaxws -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+            <version>3.1.11</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-core -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-core</artifactId>
+            <version>3.1.11</version>
+        </dependency>
+
 
         <!-- Spring Boot Test 依赖 -->
         <dependency>
