@@ -1,12 +1,17 @@
 package org.spring.springboot.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.spring.springboot.domain.master.User;
+import org.spring.springboot.domain.mongodb.MailMsg;
 import org.spring.springboot.service.UserService;
+import org.spring.springboot.service.impl.MailServerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 用户控制层
@@ -19,6 +24,9 @@ public class UserRestController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private MailServerImpl mailServerImpl;
+
     /**
      * 根据用户名获取用户信息，包括从库的地址信息
      *
@@ -30,4 +38,18 @@ public class UserRestController {
         return userService.findByName(userName);
     }
 
+    @RequestMapping(value="/mongodbInsert", method = RequestMethod.GET)
+    public void mongodbInsert() {
+        mailServerImpl.insertEmail();
+    }
+
+    @RequestMapping(value="/find/to", method = RequestMethod.GET)
+    public String findMailByTo(HttpServletRequest request, String to) {
+       // mailServerImpl.insertEmail();
+        MailMsg msg = mailServerImpl.findByTo(to);
+        if (msg == null){
+            return "not found by to " + to;
+        }
+        return JSON.toJSONString(msg);
+    }
 }
